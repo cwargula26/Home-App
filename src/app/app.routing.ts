@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {BlankTemplateComponent} from './template/blank-template.component';
 import {LeftNavTemplateComponent} from './template/left-nav-template.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {PropertyComponent} from './property/property.component';
 
 export const routes: Routes = [{
   path: '',
@@ -12,7 +13,7 @@ export const routes: Routes = [{
   path: '',
   component: LeftNavTemplateComponent,
   data: {
-    title: 'Angular Admin Template'
+    title: 'CW Home Manager'
   },
   children: [
     {
@@ -35,8 +36,7 @@ export const routes: Routes = [{
       data: {
         title: 'Form Page'
       },
-    }
-  ]
+    }  ]
 }, {
   path: 'tables',
   component: LeftNavTemplateComponent,
@@ -52,6 +52,14 @@ export const routes: Routes = [{
 }, {
   path: '**',
   component: PageNotFoundComponent
+},
+{
+  path: 'property',
+  // loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule),
+  data: {
+    title: 'Property Page'
+  },
+  component: PropertyComponent
 }];
 
 @NgModule({
